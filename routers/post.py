@@ -55,7 +55,7 @@ def create_post(
 
 
 @router.get("/{id}", response_model=PostOut)
-async def get_post(id: int, db: Session = Depends(get_db)):
+def get_post(id: int, db: Session = Depends(get_db)):
 
     post = db.query(models.Post).filter(models.Post.id == id).first()
 
